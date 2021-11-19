@@ -8,10 +8,10 @@ import java.time.LocalDate;
 @Entity
 public class Paciente extends Pessoa{
     @Column(name = "DATA_CADASTRO")
-    @NotNull
+    //@NotNull
     private LocalDate dataCadastro;
     @Column(name = "DATA_NASC")
-    @NotNull
+    //@NotNull
     private LocalDate dataNascimento;
     @Column(name = "EMAIL")
     @Size(max = 60)

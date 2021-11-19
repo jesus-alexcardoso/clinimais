@@ -1,20 +1,21 @@
 package bethacode.clinimais.resource;
 
 import bethacode.clinimais.model.Paciente;
+import bethacode.clinimais.model.QPaciente;
 import bethacode.clinimais.repository.PacienteRepository;
 import com.querydsl.core.types.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.validation.ValidationException;
+import java.util.*;
 
 @RestController
 @RequestMapping("api/pacientes")
@@ -28,7 +29,7 @@ public class PacienteController {
 //        return repository.findAll();
 //    }
 
-//Abaixo é a consulta na entidade dos paciente 'original'
+//    //Abaixo é a consulta na entidade dos paciente 'original'
 //    @GetMapping
 //    public List<Paciente> getPaciente(@QuerydslPredicate(root = Paciente.class) Predicate predicate) {
 //        List<Paciente> result = new ArrayList<>();
@@ -46,9 +47,48 @@ public class PacienteController {
         return (result);
     }
 
+    @GetMapping("/{id}")
+    public PacienteDTO getPacienteId(@PathVariable(value = "id") Long id) throws EntityNotFoundException {
+
+        Paciente pacienteFind = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado com ID :: " + id));
+
+        return PacienteDTO.toDTO(pacienteFind);
+    }
+
     @PostMapping
     public Paciente create(@Valid @RequestBody Paciente paciente){
         return repository.save(paciente);
+    }
+
+    @PutMapping("/{id}")
+    public Paciente update(@PathVariable(value = "id") Long id,
+                         @RequestBody Paciente paciente) throws EntityNotFoundException {
+        Paciente pacienteFind = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado com ID: " + id));
+
+        pacienteFind.setNome(paciente.getNome());
+        pacienteFind.setCpf(paciente.getCpf());
+        pacienteFind.setDataNascimento(paciente.getDataNascimento());
+
+        /*
+        Optional<Paciente> one = repository.findOne(QPaciente.paciente.nome.eq(paciente.getNome()));
+        if(one.isPresent()){
+            throw new ValidationException("Não é possível registrar com o mesmo Nome!");
+        }
+         */
+
+        return repository.save(pacienteFind);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable(value = "id") Long id) throws EntityNotFoundException {
+        Paciente pacienteFind = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado com ID :: " + id));
+
+        repository.delete(pacienteFind);
+
+        return ResponseEntity.noContent().build();
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

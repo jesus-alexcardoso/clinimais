@@ -66,7 +66,7 @@ public class PacienteDTO {
         Paciente entity = new Paciente();
         entity.setId(dto.getId());
         entity.setNome(dto.getNome());
-        entity.setNome(dto.getNome());
+        entity.setTelefone(dto.getTelefone());
         entity.setDataNascimento(dto.getDataNascimento());
         entity.setCpf(dto.getCpf());
 
