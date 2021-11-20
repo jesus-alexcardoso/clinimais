@@ -1,5 +1,6 @@
 package bethacode.clinimais.resource;
 
+import bethacode.clinimais.enterprise.ValidationException;
 import bethacode.clinimais.model.Paciente;
 import bethacode.clinimais.model.QPaciente;
 import bethacode.clinimais.repository.PacienteRepository;
@@ -14,12 +15,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
-import javax.validation.ValidationException;
+
 import java.util.*;
 
 @RestController
 @RequestMapping("api/pacientes")
-public class PacienteController {
+public class PacienteController extends AbstractResource{
 
     @Autowired
     private PacienteRepository repository;
@@ -57,7 +58,13 @@ public class PacienteController {
     }
 
     @PostMapping
-    public Paciente create(@Valid @RequestBody Paciente paciente){
+    public Paciente create(@Valid @RequestBody Paciente paciente) throws ValidationException {
+        List<Paciente> byCpf = repository.findByCpf(paciente.getCpf());
+
+        if (!byCpf.isEmpty()) {
+            throw new ValidationException("Já existe um paciente com o mesmo CPF registrado!");
+        }
+
         return repository.save(paciente);
     }
 
