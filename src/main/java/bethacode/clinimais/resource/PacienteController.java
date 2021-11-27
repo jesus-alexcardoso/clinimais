@@ -59,6 +59,7 @@ public class PacienteController extends AbstractResource{
 
     @PostMapping
     public Paciente create(@Valid @RequestBody Paciente paciente) throws ValidationException {
+
         List<Paciente> byCpf = repository.findByCpf(paciente.getCpf());
 
         if (!byCpf.isEmpty()) {
