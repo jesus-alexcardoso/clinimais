@@ -1,8 +1,8 @@
 package bethacode.clinimais.repository;
 
-import bethacode.clinimais.model.Paciente;
+import bethacode.clinimais.model.Agendamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface AgendamentoRepository extends JpaRepository<Paciente, Long>, QuerydslPredicateExecutor<Paciente> {
+public interface AgendamentoRepository extends JpaRepository<Agendamento, Long>, QuerydslPredicateExecutor<Agendamento> {
 }

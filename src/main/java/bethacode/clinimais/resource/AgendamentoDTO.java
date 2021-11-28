@@ -9,7 +9,6 @@ public class AgendamentoDTO {
     private LocalDateTime end;
     private LocalDateTime start;
 
-    private Long id;
     private Paciente paciente;
     private Profissional profissional;
     private Procedimento procedimento;
@@ -38,14 +37,6 @@ public class AgendamentoDTO {
 
     public void setStart(LocalDateTime start) {
         this.start = start;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Paciente getPaciente() {
@@ -93,7 +84,6 @@ public class AgendamentoDTO {
         dto.setBackgroundColor(agendamento.getBackgroundColor());
         dto.setEnd(agendamento.getEnd());
         dto.setStart(agendamento.getStart());
-        dto.setId(agendamento.getId());
         dto.setPaciente(agendamento.getPaciente());
         dto.setProfissional(agendamento.getProfissional());
         dto.setProcedimento(agendamento.getProcedimento());
@@ -108,7 +98,6 @@ public class AgendamentoDTO {
         entity.setBackgroundColor(dto.getBackgroundColor());
         entity.setEnd(dto.getEnd());
         entity.setStart(dto.getStart());
-        entity.setId(dto.getId());
         entity.setPaciente(dto.getPaciente());
         entity.setProfissional(dto.getProfissional());
         entity.setProcedimento(dto.getProcedimento());
