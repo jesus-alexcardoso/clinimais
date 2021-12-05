@@ -23,7 +23,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("bethacode.clinimais"))
-                .paths(regex("/api/pacientes.*"))
+                .paths(regex("/api.*"))
                 .build()
                 .apiInfo(metaInfo());
     }
@@ -32,7 +32,7 @@ public class SwaggerConfig {
 
         ApiInfo apiInfo = new ApiInfo(
                 "CliniMais API REST",
-                "API REST de Cadastro de Pacientes.",
+                "API REST CliniMais.",
                 "1.0",
                 "Terms of Service",
                 new Contact("Alex Cardoso", "https://",

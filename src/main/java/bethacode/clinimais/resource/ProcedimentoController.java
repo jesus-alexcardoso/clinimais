@@ -7,6 +7,8 @@ import bethacode.clinimais.model.Paciente;
 import bethacode.clinimais.model.QProcedimento;
 import bethacode.clinimais.model.Procedimento;
 import bethacode.clinimais.repository.ProcedimentoRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +25,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("api/procedimento")
+@Api(value="Rest Procedimentos")
+@CrossOrigin(origins="*")
 public class ProcedimentoController {
     @Autowired
     private ProcedimentoRepository repository;
 
     @GetMapping
+    @ApiOperation(value="Retorna a lista de procedimentos")
     public List<Procedimento> getProcedimento() {
         return repository.findAll();
     }
