@@ -58,6 +58,8 @@ public class AgendamentoController extends AbstractResource{
                 .orElseThrow(() -> new EntityNotFoundException("Consulta não encontrado com ID: " + id));
 
         agendamentoFind.setBackgroundColor(agendamento.getBackgroundColor());
+        agendamentoFind.setTitle(agendamento.getTitle());
+        agendamentoFind.setTitulo(agendamento.getTitulo());
         agendamentoFind.setEnd(agendamento.getEnd());
         agendamentoFind.setStart(agendamento.getStart());
         agendamentoFind.setPaciente(agendamento.getPaciente());

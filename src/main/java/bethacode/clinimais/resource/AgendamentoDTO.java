@@ -5,15 +5,24 @@ import bethacode.clinimais.model.*;
 import java.time.LocalDateTime;
 
 public class AgendamentoDTO {
+
+    private Long id;
     private String backgroundColor;
     private LocalDateTime end;
     private LocalDateTime start;
-
     private Paciente paciente;
     private Profissional profissional;
     private Procedimento procedimento;
     private String observacao;
     private SituacaoConsulta situacao;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getBackgroundColor() {
         return backgroundColor;

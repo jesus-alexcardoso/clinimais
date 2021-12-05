@@ -21,21 +21,21 @@ public class Agendamento extends AbstractEntity {
     private LocalDateTime start;
     @ManyToOne
     @JoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID")
-    @NotNull
+//    @NotNull
     private Paciente paciente;
     @ManyToOne
     @JoinColumn(name = "ID_PROFISSIONAL", referencedColumnName = "ID")
-    @NotNull
+//    @NotNull
     private Profissional profissional;
     @ManyToOne
     @JoinColumn(name = "ID_PROCEDIMENTO", referencedColumnName = "ID")
-    @NotNull
+//    @NotNull
     private Procedimento procedimento;
     @Column(name = "OBSERVACAO")
     @Size(max = 255)
     private String observacao;
     @Column(name = "SITUACAO")
-    @NotNull
+//    @NotNull
     private SituacaoConsulta situacao;
 
     public String getBackgroundColor() {
