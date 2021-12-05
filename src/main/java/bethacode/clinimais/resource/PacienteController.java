@@ -5,6 +5,8 @@ import bethacode.clinimais.model.Paciente;
 import bethacode.clinimais.model.QPaciente;
 import bethacode.clinimais.repository.PacienteRepository;
 import com.querydsl.core.types.Predicate;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,8 @@ import java.util.*;
 
 @RestController
 @RequestMapping("api/pacientes")
+@Api(value="Rest Pacientes")
+@CrossOrigin(origins="*")
 public class PacienteController extends AbstractResource{
 
     @Autowired
@@ -41,6 +45,7 @@ public class PacienteController extends AbstractResource{
 
     //Abaixo é a consulta na entidade dos PacienteDTO
     @GetMapping
+    @ApiOperation(value="Retorna a lista de pacientes")
     public List<PacienteDTO> getPaciente(@QuerydslPredicate(root = Paciente.class) Predicate predicate) {
         List<PacienteDTO> result = new ArrayList<>();
         Iterable<Paciente> all = repository.findAll(predicate);
@@ -49,6 +54,7 @@ public class PacienteController extends AbstractResource{
     }
 
     @GetMapping("/{id}")
+    @ApiOperation(value="Retorna apenas um paciente por vez")
     public PacienteDTO getPacienteId(@PathVariable(value = "id") Long id) throws EntityNotFoundException {
 
         Paciente pacienteFind = repository.findById(id)
@@ -58,6 +64,7 @@ public class PacienteController extends AbstractResource{
     }
 
     @PostMapping
+    @ApiOperation(value="Cria um paciente")
     public Paciente create(@Valid @RequestBody Paciente paciente) throws ValidationException {
 
         List<Paciente> byCpf = repository.findByCpf(paciente.getCpf());
@@ -70,6 +77,7 @@ public class PacienteController extends AbstractResource{
     }
 
     @PutMapping("/{id}")
+    @ApiOperation(value="Atualiza um paciente por vez")
     public Paciente update(@PathVariable(value = "id") Long id,
                          @RequestBody Paciente paciente) throws EntityNotFoundException {
         Paciente pacienteFind = repository.findById(id)
@@ -90,6 +98,7 @@ public class PacienteController extends AbstractResource{
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value="Exclui um paciente por vez")
     public ResponseEntity delete(@PathVariable(value = "id") Long id) throws EntityNotFoundException {
         Paciente pacienteFind = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado com ID :: " + id));

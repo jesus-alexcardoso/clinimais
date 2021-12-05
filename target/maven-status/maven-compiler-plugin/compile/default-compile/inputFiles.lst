@@ -29,6 +29,7 @@ C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\PacienteDTO.
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Profissional.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\repository\ConsultaRepository.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Paciente.java
+C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\SwaggerConfig.java
 C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QAgendamento.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\AgendamentoDTO.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\ProcedimentoDTO.java
