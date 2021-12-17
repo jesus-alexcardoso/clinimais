@@ -7,14 +7,23 @@ import java.time.LocalDateTime;
 public class AgendamentoDTO {
 
     private Long id;
+    private String title;
     private String backgroundColor;
     private LocalDateTime end;
     private LocalDateTime start;
-    private Paciente paciente;
-    private Profissional profissional;
-    private Procedimento procedimento;
+    private PacienteDTO paciente;
+    private ProfissionalDTO profissional;
+    private ProcedimentoDTO procedimento;
     private String observacao;
     private SituacaoConsulta situacao;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Long getId() {
         return id;
@@ -48,27 +57,27 @@ public class AgendamentoDTO {
         this.start = start;
     }
 
-    public Paciente getPaciente() {
+    public PacienteDTO getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(PacienteDTO paciente) {
         this.paciente = paciente;
     }
 
-    public Profissional getProfissional() {
+    public ProfissionalDTO getProfissional() {
         return profissional;
     }
 
-    public void setProfissional(Profissional profissional) {
+    public void setProfissional(ProfissionalDTO profissional) {
         this.profissional = profissional;
     }
 
-    public Procedimento getProcedimento() {
+    public ProcedimentoDTO getProcedimento() {
         return procedimento;
     }
 
-    public void setProcedimento(Procedimento procedimento) {
+    public void setProcedimento(ProcedimentoDTO procedimento) {
         this.procedimento = procedimento;
     }
 
@@ -90,12 +99,14 @@ public class AgendamentoDTO {
 
     public static AgendamentoDTO toDTO(Agendamento agendamento){
         AgendamentoDTO dto = new AgendamentoDTO();
+        dto.setTitle(agendamento.getPaciente().getNome());
+        dto.setId(agendamento.getId());
         dto.setBackgroundColor(agendamento.getBackgroundColor());
         dto.setEnd(agendamento.getEnd());
         dto.setStart(agendamento.getStart());
-        dto.setPaciente(agendamento.getPaciente());
-        dto.setProfissional(agendamento.getProfissional());
-        dto.setProcedimento(agendamento.getProcedimento());
+        dto.setPaciente(PacienteDTO.toDTO(agendamento.getPaciente()));
+        dto.setProfissional(ProfissionalDTO.toDTO(agendamento.getProfissional()));
+        dto.setProcedimento(ProcedimentoDTO.toDTO(agendamento.getProcedimento()));
         dto.setObservacao(agendamento.getObservacao());
         dto.setSituacao(agendamento.getSituacao());
 
@@ -104,12 +115,13 @@ public class AgendamentoDTO {
 
     public static Agendamento fromDTO(AgendamentoDTO dto){
         Agendamento entity = new Agendamento();
+        entity.setId(dto.getId());
         entity.setBackgroundColor(dto.getBackgroundColor());
         entity.setEnd(dto.getEnd());
         entity.setStart(dto.getStart());
-        entity.setPaciente(dto.getPaciente());
-        entity.setProfissional(dto.getProfissional());
-        entity.setProcedimento(dto.getProcedimento());
+        entity.setPaciente(PacienteDTO.fromDTO(dto.getPaciente()));
+        entity.setProfissional(ProfissionalDTO.fromDTO(dto.getProfissional()));
+        entity.setProcedimento(ProcedimentoDTO.fromDTO(dto.getProcedimento()));
         entity.setObservacao(dto.getObservacao());
         entity.setSituacao(dto.getSituacao());
 

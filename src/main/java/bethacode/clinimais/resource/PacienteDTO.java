@@ -5,17 +5,17 @@ import bethacode.clinimais.model.Paciente;
 import java.time.LocalDate;
 
 public class PacienteDTO {
-    private Long id;
+    private String id;
     private String nome;
     private String telefone;
     private LocalDate dataNascimento;
     private String cpf;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -53,7 +53,7 @@ public class PacienteDTO {
 
     public static PacienteDTO toDTO(Paciente paciente){
         PacienteDTO dto = new PacienteDTO();
-        dto.setId(paciente.getId());
+        dto.setId(paciente.getId().toString());
         dto.setNome(paciente.getNome());
         dto.setTelefone(paciente.getTelefone());
         dto.setDataNascimento(paciente.getDataNascimento());
@@ -64,7 +64,7 @@ public class PacienteDTO {
 
     public static Paciente fromDTO(PacienteDTO dto){
         Paciente entity = new Paciente();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setNome(dto.getNome());
         entity.setTelefone(dto.getTelefone());
         entity.setDataNascimento(dto.getDataNascimento());

@@ -2,6 +2,7 @@ bethacode\clinimais\SwaggerConfig.class
 bethacode\clinimais\CliniMaisApplication$1.class
 bethacode\clinimais\model\QPessoa.class
 bethacode\clinimais\resource\PacienteController.class
+bethacode\clinimais\repository\UsuarioRepository.class
 bethacode\clinimais\repository\PacienteRepository.class
 bethacode\clinimais\resource\AgendamentoDTO.class
 bethacode\clinimais\CliniMaisApplication.class
@@ -21,6 +22,7 @@ bethacode\clinimais\CorsConfiguration.class
 bethacode\clinimais\model\Agendamento.class
 bethacode\clinimais\model\Paciente.class
 bethacode\clinimais\model\QConsulta.class
+bethacode\clinimais\model\QUsuario.class
 bethacode\clinimais\model\Pessoa.class
 bethacode\clinimais\enterprise\QAbstractEntity.class
 bethacode\clinimais\resource\ProfissionalDTO.class
@@ -30,6 +32,7 @@ bethacode\clinimais\resource\ConsultaController.class
 bethacode\clinimais\model\Profissional.class
 bethacode\clinimais\repository\AgendamentoRepository.class
 bethacode\clinimais\repository\ProfissionalRepository.class
+bethacode\clinimais\model\Usuario.class
 bethacode\clinimais\resource\ProcedimentoDTO.class
 bethacode\clinimais\resource\AbstractResource.class
 bethacode\clinimais\model\Consulta.class

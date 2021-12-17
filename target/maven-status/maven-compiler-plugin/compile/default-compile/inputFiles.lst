@@ -8,6 +8,7 @@ C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\AgendamentoC
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\ProfissionalDTO.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\TipoProfissional.java
 C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QPaciente.java
+C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\repository\UsuarioRepository.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\PacienteController.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\CorsConfiguration.java
 C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QProfissional.java
@@ -17,6 +18,7 @@ C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\repository\PacienteRe
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Procedimento.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Consulta.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\repository\ProfissionalRepository.java
+C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QUsuario.java
 C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QConsulta.java
 C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QPessoa.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\ConsultaController.java
@@ -30,6 +32,7 @@ C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Profissional.ja
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\repository\ConsultaRepository.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Paciente.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\SwaggerConfig.java
+C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\model\Usuario.java
 C:\Max\CliniMais\backend\target\generated-sources\java\bethacode\clinimais\model\QAgendamento.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\AgendamentoDTO.java
 C:\Max\CliniMais\backend\src\main\java\bethacode\clinimais\resource\ProcedimentoDTO.java

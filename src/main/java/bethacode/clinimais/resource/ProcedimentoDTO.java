@@ -4,14 +4,14 @@ import bethacode.clinimais.model.Procedimento;
 
 public class ProcedimentoDTO {
 
-    private Long id;
+    private String id;
     private String descricao;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -25,7 +25,7 @@ public class ProcedimentoDTO {
 
     public static ProcedimentoDTO toDTO(Procedimento procedimento){
         ProcedimentoDTO dto = new ProcedimentoDTO();
-        dto.setId(procedimento.getId());
+        dto.setId(procedimento.getId().toString());
         dto.setDescricao(procedimento.getDescricao());
 
         return dto;
@@ -33,7 +33,7 @@ public class ProcedimentoDTO {
 
     public static Procedimento fromDTO(ProcedimentoDTO dto){
         Procedimento entity = new Procedimento();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setDescricao(dto.getDescricao());
 
         return entity;

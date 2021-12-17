@@ -5,15 +5,15 @@ import bethacode.clinimais.model.Profissional;
 import bethacode.clinimais.model.TipoProfissional;
 
 public class ProfissionalDTO {
-    private Long id;
+    private String id;
     private String nome;
     private TipoProfissional tipoProfissional;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -35,7 +35,7 @@ public class ProfissionalDTO {
 
     public static ProfissionalDTO toDTO(Profissional profissional){
         ProfissionalDTO dto = new ProfissionalDTO();
-        dto.setId(profissional.getId());
+        dto.setId(profissional.getId().toString());
         dto.setNome(profissional.getNome());
         dto.setTipoProfissional(profissional.getTipoProfissional());
 
@@ -44,7 +44,7 @@ public class ProfissionalDTO {
 
     public static Profissional fromDTO(ProfissionalDTO dto){
         Profissional entity = new Profissional();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setNome(dto.getNome());
         entity.setTipoProfissional(dto.getTipoProfissional());
 
